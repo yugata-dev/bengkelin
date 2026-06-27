@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+    --font-poppins: "Poppins", sans-serif;
+    --font-neue: "Bebas Neue", sans-serif;
+
+    --color-primary: #cc3333;
+    --color-primary-hover: #b82e2e;
+    --color-dark: #0f1115;
+    --color-background: #1a1c22;
+    --color-surface: #23262d;
+    --color-text: #ffffff;
+    --color-muted: #979ca7;
+    --color-border: #2f3440;
+}
+
+body {
+    font-family: var(--font-poppins);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
