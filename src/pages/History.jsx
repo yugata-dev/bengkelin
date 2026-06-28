@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import useTrack from '../useTrack'
 import { hitungJamSelesai } from '../utils/hitungJamSelesai'
-import { formatDurasi } from '../utils/formatDurasi'
 
 function Antrian() {
     const { track, isLoading } = useTrack()
@@ -176,7 +175,7 @@ function Antrian() {
                                                 <td className="py-4 px-6 text-center font-mono text-sm text-primary font-bold">
                                                     {jamKelar}
                                                     {!data.jam_mulai && (
-                                                        <div className="text- text-yellow-400 font-normal">
+                                                        <div className="text-yellow-400 font-normal">
                                                             *estimasi
                                                         </div>
                                                     )}

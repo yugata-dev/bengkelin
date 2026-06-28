@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import { supabase } from '../supabaseClient'
-import { hitungJamSelesai } from '../utils/hitungJamSelesai'
-import { formatDurasi } from '../utils/formatDurasi'
 
 function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateData }) {
     const [isEditing, setIsEditing] = useState(false)
     const [editData, setEditData] = useState({
         jam_mulai: data.jam_mulai || '',
-        estimasi: data.estimasi || 60,
+        jam_selesai: data.jam_selesai || '',
         kategoriservis: data.kategoriservis || ''
     })
     const [saving, setSaving] = useState(false)
@@ -19,7 +17,7 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
             .from('booking-table')
             .update({
                 jam_mulai: editData.jam_mulai,
-                estimasi: parseInt(editData.estimasi),
+                jam_selesai: editData.jam_selesai,
                 kategoriservis: editData.kategoriservis
             })
             .eq('id', data.id)
@@ -30,7 +28,7 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
             const updatedData = {
                 ...data,
                 jam_mulai: editData.jam_mulai,
-                estimasi: parseInt(editData.estimasi),
+                jam_selesai: editData.jam_selesai,
                 kategoriservis: editData.kategoriservis
             }
             onUpdateData(updatedData)
@@ -43,7 +41,7 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
     const handleCancelEdit = () => {
         setEditData({
             jam_mulai: data.jam_mulai || '',
-            estimasi: data.estimasi || 60,
+            jam_selesai: data.jam_selesai || '',
             kategoriservis: data.kategoriservis || ''
         })
         setIsEditing(false)
@@ -79,9 +77,6 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
             default: return '📋'
         }
     }
-
-    const jamAcuan = data.jam_mulai || data.jam
-    const jamKelar = hitungJamSelesai(jamAcuan, data.estimasi)
 
     return (
         <tr className="hover:bg-surface/50 transition-colors border-b border-border/30">
@@ -145,25 +140,21 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
                 )}
             </td>
 
-            {/* Estimasi Kelar */}
+            {/* Jam Target Selesai */}
             <td className="py-4 px-6 text-center">
                 {isEditing ? (
-                    <div className="flex flex-col items-center gap-1">
-                        <input
-                            type="number"
-                            value={editData.estimasi}
-                            onChange={(e) => setEditData({ ...editData, estimasi: e.target.value })}
-                            className="w-16 bg-background border border-border rounded px-2 py-1 text-xs text-center"
-                            min="1"
-                        />
-                        <span className="text- text-muted">menit</span>
-                    </div>
+                    <input
+                        type="time"
+                        value={editData.jam_selesai}
+                        onChange={(e) => setEditData({ ...editData, jam_selesai: e.target.value })}
+                        className="bg-background border border-border rounded px-2 py-1 text-xs font-mono"
+                    />
                 ) : (
                     <div>
-                        <p className="text-primary font-mono text-sm font-bold">{jamKelar}</p>
-                        <p className="text-xs text-muted">{formatDurasi(data.estimasi)}</p>
-                        {!data.jam_mulai && (
-                            <p className="text- text-yellow-400">*estimasi</p>
+                        {data.jam_selesai ? (
+                            <p className="text-primary font-mono text-sm font-bold">{data.jam_selesai}</p>
+                        ) : (
+                            <p className="text-muted text-xs">-</p>
                         )}
                     </div>
                 )}

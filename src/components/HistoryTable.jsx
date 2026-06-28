@@ -1,6 +1,7 @@
 import { hitungJamSelesai } from '../utils/hitungJamSelesai';
 
-function HistoryTable(props) {
+function HistoryTable({ render }) {
+    const rows = Array.isArray(render) ? render : []
     const getStatusStyle = (status) => {
         switch (status) { // hapus .toLowerCase() biar case sensitive sesuai DB
             case 'Selesai':
@@ -30,7 +31,7 @@ function HistoryTable(props) {
     };
 
     return (
-        props.render.map((data, index) => (
+        rows.map((data, index) => (
             <tr
                 key={data.id}
                 className="hover:bg-surface/50 transition-colors duration-200 border-b border-border/20 last:border-0"

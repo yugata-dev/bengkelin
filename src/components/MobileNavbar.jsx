@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function MobileNavbar({ isOpen, toggleMenu, closeMenu }) {
     const links = [
-        { name: 'HOME', to: '/home' },
+        { name: 'HOME', to: '/' },
         { name: 'DASHBOARD ADMIN', to: '/login' },
         { name: 'ANTRIAN', to: '/history' },
         { name: 'TRACK STATUS', to: '/track' },

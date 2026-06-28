@@ -285,18 +285,26 @@ function Admin() {
     })
 
     const isOverdueBooking = (booking) => {
+        // Jika tidak ada data, return false
         if (!booking) return false
+
+        // Jika sudah selesai atau dibatalkan, tidak perlu overdue
         if (booking.status === 'Selesai' || booking.status === 'Batal') return false
 
-        const jamAcuan = booking.jam_mulai || booking.jam
-        if (!jamAcuan) return false
+        // Hanya tandai overdue jika status "Proses" atau "Quality Check"
+        if (booking.status !== 'Proses' && booking.status !== 'Quality Check') return false
 
-        const startTime = new Date(`${booking.date}T${jamAcuan}`)
-        if (Number.isNaN(startTime.getTime())) return false
+        // Jika tidak ada jam_selesai, tidak bisa diperiksa
+        if (!booking.jam_selesai) return false
 
-        const durationMinutes = parseInt(booking.estimasi, 10) || 0
-        const finishTime = new Date(startTime.getTime() + durationMinutes * 60000)
-        return finishTime < new Date()
+        // Buat object waktu untuk jam_selesai hari ini
+        const finishTime = new Date(`${booking.date}T${booking.jam_selesai}`)
+
+        // Jika waktu tidak valid, skip
+        if (Number.isNaN(finishTime.getTime())) return false
+
+        // isOverdue = true jika jam sekarang SUDAH MELEWATI jam_selesai
+        return new Date() > finishTime
     }
 
     const overdueCount = (track || []).filter(isOverdueBooking).length

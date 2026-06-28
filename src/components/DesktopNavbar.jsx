@@ -5,7 +5,7 @@ function DesktopNavbar() {
         <nav className="hidden md:block bg-dark px-6 lg:px-10 py-3 w-full">
             <div className="max-w-7xl mx-auto flex justify-between items-center font-semibold">
                 {/* Logo */}
-                <Link to="/home">
+                <Link to="/">
                     <h1 className="font-bold leading-tight">
                         <span className="text-text tracking-widest inline-block scale-y-180 font-neue text-base lg:text-lg">
                             CAKARABANGKIT
