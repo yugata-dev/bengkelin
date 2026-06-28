@@ -5,6 +5,7 @@ import { supabase } from "../supabaseClient";
 import bengkelBg from "../assets/mehmet-talha-onuk-5M-72czGFl4-unsplash.jpg";
 import useTrack from "../useTrack.jsx";
 import useMekanik from "../useMekanik";
+import { formatDurasi } from "../utils/formatDurasi"
 
 const FadeInUp = ({ children, delay = 0, className = "" }) => (
     <motion.div
@@ -408,7 +409,7 @@ export default function Home() {
                                         <div className="flex justify-between items-end border-t border-border pt-4">
                                             <div>
                                                 <p className="text-xs text-muted">Estimasi</p>
-                                                <p className="font-semibold">{item.estimasi_menit} menit</p>
+                                                <p className="font-semibold">{formatDurasi(item.estimasi_menit)}</p>
                                             </div>
                                             <div className="text-right">
                                                 <p className="text-xs text-muted">Mulai dari</p>

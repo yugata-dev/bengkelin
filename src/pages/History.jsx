@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useTrack from '../useTrack'
 import { hitungJamSelesai } from '../utils/hitungJamSelesai'
+import { formatDurasi } from '../utils/formatDurasi'
 
 function Antrian() {
     const { track, isLoading } = useTrack()

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../supabaseClient'
 import { hitungJamSelesai } from '../utils/hitungJamSelesai'
+import { formatDurasi } from '../utils/formatDurasi'
 
 function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateData }) {
     const [isEditing, setIsEditing] = useState(false)
@@ -160,7 +161,7 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
                 ) : (
                     <div>
                         <p className="text-primary font-mono text-sm font-bold">{jamKelar}</p>
-                        <p className="text-xs text-muted">{data.estimasi} menit</p>
+                        <p className="text-xs text-muted">{formatDurasi(data.estimasi)}</p>
                         {!data.jam_mulai && (
                             <p className="text- text-yellow-400">*estimasi</p>
                         )}

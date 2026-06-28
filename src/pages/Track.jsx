@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import useTrack from '../useTrack.jsx'
 import { hitungJamSelesai } from '../utils/hitungJamSelesai'
+import { formatDurasi } from '../utils/formatDurasi'
 
 function Track() {
     const { track, isLoading } = useTrack()
@@ -156,7 +157,7 @@ function Track() {
                                         </div>
                                         <div>
                                             <span className="text-muted uppercase">Durasi Servis</span>
-                                            <p className="text-text font-mono text-sm mt-1">{data.estimasi} menit</p>
+                                            <p className="text-text font-mono text-sm mt-1">{formatDurasi(data.estimasi)}</p>
                                         </div>
                                     </div>
 

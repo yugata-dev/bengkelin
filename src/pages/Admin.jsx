@@ -4,6 +4,7 @@ import useTrack from '../useTrack.jsx'
 import useMekanik from '../useMekanik'
 import { supabase } from '../supabaseClient'
 import AdminRow from '../components/AdminRow'
+import { hitungJamSelesai } from '../utils/hitungJamSelesai'
 
 const ADMIN_EMAILS = [import.meta.env.VITE_ADMIN_EMAIL || 'yugata.dv@gmail.com']
 
@@ -207,7 +208,28 @@ function Admin() {
         }
     }
 
+    const sendWhatsApp = (booking, newStatus) => {
+        const messages = {
+            'Proses': `Halo ${booking.nama}! 🔧 Mobil Anda (${booking.platno}) sedang dalam proses pengerjaan di Cakarabangkit Car Service. Estimasi selesai: ${hitungJamSelesai(booking.jam_mulai || booking.jam, booking.estimasi)}. Terima kasih telah menunggu!`,
+            'Quality Check': `Halo ${booking.nama}! 🔍 Mobil Anda (${booking.platno}) sedang dalam tahap Quality Check. Sebentar lagi selesai!`,
+            'Selesai': `Halo ${booking.nama}! ✅ Mobil Anda (${booking.platno}) sudah selesai diservis di Cakarabangkit Car Service. Silakan diambil. Terima kasih!`,
+            'Menunggu Part': `Halo ${booking.nama}! 📦 Mobil Anda (${booking.platno}) sedang menunggu spare part. Kami akan segera menghubungi Anda kembali.`,
+            'Batal': `Halo ${booking.nama}! ❌ Mohon maaf, booking Anda (${booking.platno}) dibatalkan. Silakan hubungi kami untuk info lebih lanjut.`
+        }
+
+        const message = messages[newStatus]
+        if (!message) return
+
+        const phone = booking.notelepon?.replace(/\D/g, '').replace(/^0/, '62')
+        if (!phone) return
+
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
+        window.open(url, '_blank')
+    }
+
     const updateStatus = async (id, newStatus) => {
+        const booking = track.find(item => item.id === id)
+
         const { error } = await supabase
             .from('booking-table')
             .update({ status: newStatus })
@@ -219,6 +241,9 @@ function Admin() {
             setTrack(track.map(item =>
                 item.id === id ? { ...item, status: newStatus } : item
             ))
+            if (booking) {
+                sendWhatsApp(booking, newStatus)
+            }
         }
     }
 
