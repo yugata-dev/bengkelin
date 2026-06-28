@@ -5,7 +5,7 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
     const [isEditing, setIsEditing] = useState(false)
     const [editData, setEditData] = useState({
         jam_mulai: data.jam_mulai || '',
-        jam_selesai: data.jam_selesai || '',
+        jam_selesai: data.jam_selesai || '', // Menggantikan estimasi menit
         kategoriservis: data.kategoriservis || ''
     })
     const [saving, setSaving] = useState(false)
@@ -17,7 +17,7 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
             .from('booking-table')
             .update({
                 jam_mulai: editData.jam_mulai,
-                jam_selesai: editData.jam_selesai,
+                jam_selesai: editData.jam_selesai, // Menyimpan format jam langsung (contoh: "17:00")
                 kategoriservis: editData.kategoriservis
             })
             .eq('id', data.id)
@@ -63,18 +63,6 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
                 return 'bg-red-500/10 text-red-400 border-red-500/20'
             default:
                 return 'bg-gray-500/10 text-gray-400 border-gray-500/20'
-        }
-    }
-
-    const getStatusIcon = (status) => {
-        switch (status) {
-            case 'Selesai': return '✅'
-            case 'Proses': return '🔧'
-            case 'Menunggu Part': return '📦'
-            case 'Quality Check': return '🔍'
-            case 'Booking': return '🕒'
-            case 'Batal': return '❌'
-            default: return '📋'
         }
     }
 
@@ -140,7 +128,7 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
                 )}
             </td>
 
-            {/* Jam Target Selesai */}
+            {/* Target Kelar */}
             <td className="py-4 px-6 text-center">
                 {isEditing ? (
                     <input
@@ -151,11 +139,10 @@ function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateDa
                     />
                 ) : (
                     <div>
-                        {data.jam_selesai ? (
-                            <p className="text-primary font-mono text-sm font-bold">{data.jam_selesai}</p>
-                        ) : (
-                            <p className="text-muted text-xs">-</p>
-                        )}
+                        <p className="text-primary font-mono text-sm font-bold">
+                            {data.jam_selesai || '--:--'}
+                        </p>
+                        <p className="text-[10px] text-muted">Target Selesai</p>
                     </div>
                 )}
             </td>
