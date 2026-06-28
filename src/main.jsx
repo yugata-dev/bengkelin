@@ -14,7 +14,8 @@ import { TrackProvider } from "./useTrack.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <TrackProvider>
-      <BrowserRouter basename="/">
+      {/* 🛠️ Mengubah basename agar sesuai dengan nama repositori GitHub */}
+      <BrowserRouter basename="/bengkelin">
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="/" element={<Home />} />
