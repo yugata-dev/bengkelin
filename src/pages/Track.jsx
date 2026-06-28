@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import useTrack from '../useTrack'
+import { useState } from 'react'
+import useTrack from '../useTrack.jsx'
 import { hitungJamSelesai } from '../utils/hitungJamSelesai'
 
 function Track() {

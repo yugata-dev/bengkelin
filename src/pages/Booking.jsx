@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { supabase } from "../supabaseClient"
 import useInputBooking from '../useInputBooking'
-import useTrack from '../useTrack'
+import useTrack from '../useTrack.jsx'
 
 function Booking() {
     const { track, setTrack, isLoading } = useTrack()

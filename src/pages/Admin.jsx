@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
-import useTrack from '../useTrack'
+import useTrack from '../useTrack.jsx'
 import useMekanik from '../useMekanik'
 import { supabase } from '../supabaseClient'
 import AdminRow from '../components/AdminRow'
 
-const ADMIN_EMAILS = ['yugata.dv@gmail.com']
+const ADMIN_EMAILS = [import.meta.env.VITE_ADMIN_EMAIL || 'yugata.dv@gmail.com']
 
 function Admin() {
     const { track, setTrack, isLoading } = useTrack()
@@ -549,7 +549,7 @@ function Admin() {
                         </button>
                     </div>
 
-                    <div className="max-h-[500px] overflow-y-auto space-y-3">
+                    <div className="max-h-125 overflow-y-auto space-y-3">
                         {commentsLoading ? (
                             <div className="text-center text-muted py-4">Loading komentar...</div>
                         ) : comments.length === 0 ? (

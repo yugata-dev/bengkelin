@@ -9,20 +9,23 @@ import Track from "./pages/Track.jsx"
 import Booking from "./pages/Booking.jsx";
 import Admin from "./pages/Admin.jsx";
 import Login from "./pages/Login.jsx";
+import { TrackProvider } from "./useTrack.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="history" element={<History />} />
-          <Route path="track" element={<Track />} />
-          <Route path="booking" element={<Booking />}></Route>
-          <Route path="admin" element={<Admin />}></Route>
-          <Route path="login" element={<Login />}></Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <TrackProvider>
+      <BrowserRouter basename="/bengkelin">
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="history" element={<History />} />
+            <Route path="track" element={<Track />} />
+            <Route path="booking" element={<Booking />}></Route>
+            <Route path="admin" element={<Admin />}></Route>
+            <Route path="login" element={<Login />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </TrackProvider>
   </React.StrictMode>
 );

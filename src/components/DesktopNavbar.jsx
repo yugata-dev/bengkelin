@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from "react-router-dom";
 
 function DesktopNavbar() {
@@ -21,7 +20,7 @@ function DesktopNavbar() {
                 {/* Menu Desktop */}
                 <div className="flex items-center gap-4 lg:gap-6 text-white text-xs lg:text-sm">
                     <Link
-                        to="/home"
+                        to="/"
                         className="text-primary hover:scale-110 transition-transform duration-300"
                     >
                         HOME

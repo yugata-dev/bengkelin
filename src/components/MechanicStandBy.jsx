@@ -1,4 +1,3 @@
-import React from 'react'
 import useMekanik from '../useMekanik'
 
 function MechanicStandBy() {
@@ -20,8 +19,8 @@ function MechanicStandBy() {
             <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold text-text">Status Bengkel</h3>
                 <span className={`px-3 py-1 rounded-full text-xs font-bold border ${isBuka
-                        ? 'bg-green-500/10 text-green-400 border-green-500/20'
-                        : 'bg-red-500/10 text-red-400 border-red-500/20'
+                    ? 'bg-green-500/10 text-green-400 border-green-500/20'
+                    : 'bg-red-500/10 text-red-400 border-red-500/20'
                     }`}>
                     {mekanik.status_bengkel.toUpperCase()}
                 </span>

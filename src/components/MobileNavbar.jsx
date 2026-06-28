@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from "react-router-dom";
 
 export default function MobileNavbar({ isOpen, toggleMenu, closeMenu }) {
@@ -14,7 +13,7 @@ export default function MobileNavbar({ isOpen, toggleMenu, closeMenu }) {
         <nav className="md:hidden bg-dark px-6 py-3 w-full relative">
             {/* Header Mobile: Logo + Hamburger */}
             <div className="flex justify-between items-center">
-                <Link to="/home" onClick={closeMenu}>
+                <Link to="/" onClick={closeMenu}>
                     <h1 className="font-bold leading-tight">
                         <span className="text-text tracking-widest inline-block scale-y-180 font-neue text-base">
                             CAKARABANGKIT

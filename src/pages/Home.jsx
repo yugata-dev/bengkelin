@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { supabase } from "../supabaseClient";
 import bengkelBg from "../assets/mehmet-talha-onuk-5M-72czGFl4-unsplash.jpg";
-import useTrack from "../useTrack";
+import useTrack from "../useTrack.jsx";
 import useMekanik from "../useMekanik";
 
 const FadeInUp = ({ children, delay = 0, className = "" }) => (
@@ -592,7 +592,7 @@ export default function Home() {
                             <div className="space-y-2 text-xs">
                                 <p>✉ cakarabangkit@gmail.com</p>
                                 <p>📍 Malang, Jawa Timur</p>
-                                <p>📱 +62 xxx-xxxx</p>
+                                <p>📱 +62 812-3456-7890</p>
                             </div>
                         </div>
                         <div>
@@ -605,7 +605,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="max-w-7xl mx-auto px-6 md:px-10 border-t border-border/50 pt-6 text-center text-xs">
-                        <p>© 2026 Car Service Cakarabangkit. All rights reserved.</p>
+                        <p>© {new Date().getFullYear()} Car Service Cakarabangkit. All rights reserved.</p>
                     </div>
                 </FadeInUp>
             </footer>

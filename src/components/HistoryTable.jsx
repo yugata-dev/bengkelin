@@ -1,4 +1,3 @@
-import React from 'react'
 import { hitungJamSelesai } from '../utils/hitungJamSelesai';
 
 function HistoryTable(props) {
