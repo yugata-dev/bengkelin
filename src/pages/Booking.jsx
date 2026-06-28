@@ -105,11 +105,11 @@ function Booking() {
 
         // 2. CEK COOLDOWN
         const lastSubmit = localStorage.getItem('lastBookingTime')
-        const now = Date.now()
+        const nowMs = Date.now()
         const delayMs = 30000
 
-        if (lastSubmit && now - parseInt(lastSubmit) < delayMs) {
-            const sisa = Math.ceil((delayMs - (now - parseInt(lastSubmit))) / 1000)
+        if (lastSubmit && nowMs - parseInt(lastSubmit) < delayMs) {
+            const sisa = Math.ceil((delayMs - (nowMs - parseInt(lastSubmit))) / 1000)
             setCooldown(sisa)
             alert(`Tunggu ${sisa} detik sebelum booking lagi ya`)
             return
@@ -128,7 +128,8 @@ function Booking() {
         }
 
         // 5. VALIDASI TANGGAL
-        const today = new Date().toISOString().split('T')[0]
+        const now = new Date()
+        const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
         if (state.inputDate < today) {
             return alert("Tanggal booking tidak boleh kemarin!")
         }
@@ -159,7 +160,7 @@ function Booking() {
             console.log("Error", error.message)
             alert(`Gagal nambah booking: ${error.message}`)
         } else {
-            localStorage.setItem('lastBookingTime', now.toString())
+            localStorage.setItem('lastBookingTime', nowMs.toString())
             setCooldown(30)
             dispatch({ type: "RESET" })
             setPhoneError('')
@@ -169,7 +170,8 @@ function Booking() {
         }
     }
 
-    const today = new Date().toISOString().split('T')[0]
+    const now = new Date()
+    const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
     const selectedLayanan = layananList.find(l => l.nama_layanan === state.inputServis)
 
     return (
@@ -322,9 +324,9 @@ function Booking() {
                     <button
                         type="submit"
                         className="md:col-span-2 mt-4 bg-primary hover:bg-primary-hover text-text font-bold text-sm py-3.5 rounded-md transition-colors duration-300 tracking-wider uppercase cursor-pointer shadow-lg shadow-primary/10 disabled:opacity-50 disabled:cursor-not-allowed"
-                        disabled={isLoading || cooldown > 0}
+                        disabled={cooldown > 0}
                     >
-                        {isLoading ? 'MENYIMPAN...' : cooldown > 0 ? `TUNGGU ${cooldown} DETIK` : 'TAMBAH ANTREAN BENGKEL'}
+                        {cooldown > 0 ? `TUNGGU ${cooldown} DETIK` : 'TAMBAH ANTREAN BENGKEL'}
                     </button>
                 </form>
             </div>

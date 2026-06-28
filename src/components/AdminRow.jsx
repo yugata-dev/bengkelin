@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { supabase } from '../supabaseClient'
 import { hitungJamSelesai } from '../utils/hitungJamSelesai'
 
-function AdminRow({ data, index, onUpdateStatus, onDelete, onUpdateData }) {
+function AdminRow({ data, index, isOverdue, onUpdateStatus, onDelete, onUpdateData }) {
     const [isEditing, setIsEditing] = useState(false)
     const [editData, setEditData] = useState({
         jam_mulai: data.jam_mulai || '',
@@ -170,18 +170,25 @@ function AdminRow({ data, index, onUpdateStatus, onDelete, onUpdateData }) {
 
             {/* Status */}
             <td className="py-4 px-6 text-center">
-                <select
-                    value={data.status}
-                    onChange={(e) => onUpdateStatus(data.id, e.target.value)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium border cursor-pointer focus:outline-none ${getStatusStyle(data.status)}`}
-                >
-                    <option value="Booking">🕒 Booking</option>
-                    <option value="Proses">🔧 Proses</option>
-                    <option value="Menunggu Part">📦 Menunggu Part</option>
-                    <option value="Quality Check">🔍 Quality Check</option>
-                    <option value="Selesai">✅ Selesai</option>
-                    <option value="Batal">❌ Batal</option>
-                </select>
+                <div className="flex flex-col items-center gap-2">
+                    {isOverdue && (
+                        <span className="inline-flex items-center rounded-full border border-red-500/20 bg-red-500/10 px-2 py-0.5 text-[10px] font-semibold text-red-500">
+                            OVERDUE
+                        </span>
+                    )}
+                    <select
+                        value={data.status}
+                        onChange={(e) => onUpdateStatus(data.id, e.target.value)}
+                        className={`px-3 py-1.5 rounded-full text-xs font-medium border cursor-pointer focus:outline-none ${getStatusStyle(data.status)}`}
+                    >
+                        <option value="Booking">🕒 Booking</option>
+                        <option value="Proses">🔧 Proses</option>
+                        <option value="Menunggu Part">📦 Menunggu Part</option>
+                        <option value="Quality Check">🔍 Quality Check</option>
+                        <option value="Selesai">✅ Selesai</option>
+                        <option value="Batal">❌ Batal</option>
+                    </select>
+                </div>
             </td>
 
             {/* Aksi */}

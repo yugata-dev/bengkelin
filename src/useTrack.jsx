@@ -14,11 +14,11 @@ export function TrackProvider({ children }) {
 
     const getTrack = async () => {
         setIsLoading(true)
-        const today = new Date().toISOString().split('T')[0]
+
         const { data, error } = await supabase
             .from('booking-table')
             .select('*')
-            .gte('date', today)
+            .not('status', 'eq', 'Selesai')
             .order('date', { ascending: false })
 
         if (error) {

@@ -259,6 +259,23 @@ function Admin() {
         return new Date(`${a.date}T${jamA}`) - new Date(`${b.date}T${jamB}`)
     })
 
+    const isOverdueBooking = (booking) => {
+        if (!booking) return false
+        if (booking.status === 'Selesai' || booking.status === 'Batal') return false
+
+        const jamAcuan = booking.jam_mulai || booking.jam
+        if (!jamAcuan) return false
+
+        const startTime = new Date(`${booking.date}T${jamAcuan}`)
+        if (Number.isNaN(startTime.getTime())) return false
+
+        const durationMinutes = parseInt(booking.estimasi, 10) || 0
+        const finishTime = new Date(startTime.getTime() + durationMinutes * 60000)
+        return finishTime < new Date()
+    }
+
+    const overdueCount = (track || []).filter(isOverdueBooking).length
+
     // AUTH GUARD
     if (authLoading) {
         return (
@@ -562,7 +579,7 @@ function Admin() {
                                             <p className="font-bold">{comment.name}</p>
                                             <div className="flex gap-1 text-primary text-sm">
                                                 {[...Array(comment.rating || 5)].map((_, i) => (
-                                                    <span key={i}>★</span>
+                                                    <span key={i}>{comment.rating}</span>
                                                 ))}
                                             </div>
                                             <div className="flex items-center gap-3">
@@ -604,6 +621,12 @@ function Admin() {
                 </div>
 
                 {/* TABLE BOOKING */}
+                {overdueCount > 0 && (
+                    <div className="bg-red-500/10 border border-red-500/20 text-red-500 rounded-xl p-4 mb-4">
+                        <p className="font-semibold">⚠️ Ada {overdueCount} booking overdue</p>
+                        <p className="text-sm text-muted">Booking yang melewati estimasi selesai tetapi belum ditandai selesai perlu ditindaklanjuti.</p>
+                    </div>
+                )}
                 <div className="bg-surface/40 backdrop-blur-md border border-border rounded-xl overflow-hidden shadow-2xl">
                     <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse text-sm">
@@ -639,6 +662,7 @@ function Admin() {
                                             key={data.id}
                                             data={data}
                                             index={index}
+                                            isOverdue={isOverdueBooking(data)}
                                             onUpdateStatus={updateStatus}
                                             onDelete={deleteBooking}
                                             onUpdateData={updateBookingData}
