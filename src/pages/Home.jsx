@@ -193,7 +193,7 @@ export default function Home() {
                         >
                             <span className="w-8 h-0.5 bg-primary"></span>
                             <p className="text-primary font-bold text-xs tracking-[0.3em] uppercase">
-                                BENGKEL TERPERCAYA DI MALANG
+                                TEMPLATE LANDING PAGE DEMO
                             </p>
                         </motion.div>
 
@@ -203,8 +203,8 @@ export default function Home() {
                             transition={{ duration: 0.7, delay: 0.2 }}
                             className="font-neue text-6xl md:text-7xl font-bold leading-[0.9] tracking-wide uppercase mb-6"
                         >
-                            <span className="text-text">SERVIS CEPAT,</span><br />
-                            <span className="text-primary">HASIL TERBAIK.</span>
+                            <span className="text-text">TEMPLATE MODERN,</span><br />
+                            <span className="text-primary">SIAP DIKUSTOMISASI.</span>
                         </motion.h1>
 
                         <motion.p
@@ -213,7 +213,7 @@ export default function Home() {
                             transition={{ duration: 0.7, delay: 0.4 }}
                             className="text-gray-300 text-base max-w-md mb-8 leading-relaxed"
                         >
-                            Ditangani oleh mekanik sertifikasi profesional dengan pengalaman lebih dari 8 tahun. Solusi tepat untuk performa maksimal kendaraan Anda.
+                            Konten ini sengaja dibuat sebagai contoh untuk menunjukkan tampilan landing page template. Anda bisa mengganti teks, warna, dan struktur sesuai kebutuhan brand atau bisnis Anda.
                         </motion.p>
 
                         <motion.div
@@ -226,14 +226,14 @@ export default function Home() {
                                 to="../booking"
                                 className="group bg-primary hover:bg-primary-hover rounded-md py-3.5 px-8 text-text font-semibold text-sm inline-flex items-center gap-3 transition-all duration-300 shadow-lg shadow-primary/20"
                             >
-                                BOOKING SERVICES
+                                LIHAT DEMO FITUR
                                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                             </Link>
                             <Link
                                 to="../track"
                                 className="border border-border hover:bg-surface/50 rounded-md py-3.5 px-8 text-text font-semibold text-sm transition-all duration-300"
                             >
-                                CEK STATUS ANTRIAN
+                                JELAJAHI TEMPLATE
                             </Link>
                         </motion.div>
                     </div>
@@ -249,7 +249,7 @@ export default function Home() {
                                 <span className={`w-2 h-2 rounded-full ${isMekanikLoading ? 'bg-gray-500' :
                                     mekanik?.status_bengkel === 'Buka' ? 'bg-green-500 animate-pulse' : 'bg-red-500'
                                     }`}></span>
-                                Status Bengkel Hari Ini
+                                Status Demo Hari Ini
                             </h3>
 
                             {isMekanikLoading ? (
@@ -291,15 +291,15 @@ export default function Home() {
                ========================================================= */}
             <section id="layanan" className="py-20 max-w-7xl mx-auto px-6 md:px-10">
                 <FadeInUp className="text-center mb-12">
-                    <h2 className="font-neue text-4xl font-bold tracking-wide text-primary">OUR SERVICES</h2>
-                    <p className="text-muted text-sm mt-2">Layanan berkualitas tinggi untuk kendaraan Anda</p>
+                    <h2 className="font-neue text-4xl font-bold tracking-wide text-primary">SAMPLE SERVICES</h2>
+                    <p className="text-muted text-sm mt-2">Contoh blok layanan yang dapat Anda ubah sesuai kebutuhan bisnis Anda</p>
                 </FadeInUp>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {[
-                        { icon: "🛠", title: "Diagnosa Mesin (Tune Up)", desc: "Pemeriksaan menyeluruh performa mesin kendaraan menggunakan pemindai komputer modern." },
-                        { icon: "⚙", title: "Perbaikan Kaki-Kaki", desc: "Servis suspensi, shockbreaker, tie-rod, dan penyelarasan roda demi kenyamanan berkendara Anda." },
-                        { icon: "🛢", title: "Ganti Oli & Berkala", desc: "Penggantian oli mesin berkualitas tinggi beserta filternya sesuai dengan specifications pabrikan." }
+                        { icon: "🛠", title: "Fitur Utama", desc: "Blok ini dapat dipakai untuk menampilkan layanan, fitur, atau value proposition utama Anda." },
+                        { icon: "⚙", title: "Proses yang Rapi", desc: "Tampilan ini dirancang agar mudah dikustomisasi untuk berbagai jenis bisnis atau produk." },
+                        { icon: "🛢", title: "Solusi Praktis", desc: "Gunakan bagian ini untuk menjelaskan manfaat, paket, atau alur kerja Anda secara singkat." }
                     ].map((service, i) => (
                         <FadeInUp key={i} delay={i * 0.15}>
                             <div className="bg-surface border border-border p-8 rounded-xl hover:border-primary transition-all duration-300 group h-full">
@@ -323,18 +323,18 @@ export default function Home() {
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.7 }}
                     >
-                        <h2 className="font-neue text-4xl font-bold tracking-wide text-primary mb-4">ABOUT CAKARABANGKIT</h2>
+                        <h2 className="font-neue text-4xl font-bold tracking-wide text-primary mb-4">ABOUT THIS TEMPLATE</h2>
                         <p className="text-gray-300 text-sm leading-relaxed mb-6">
-                            Cakarabangkit Car Service berkomitmen memberikan pelayanan perawatan dan perbaikan mobil terbaik di Malang. Berbekal mekanik andal berpengalaman dan peralatan diagnostik standar industri, kami memastikan mobil Anda kembali ke performa puncaknya.
+                            Halaman ini sengaja dibuat sebagai contoh template landing page yang bisa dipakai untuk berbagai kebutuhan. Semua teks di sini hanya ilustrasi agar Anda lebih mudah melihat struktur dan nuansa desainnya.
                         </p>
                         <div className="grid grid-cols-2 gap-6">
                             <div className="bg-surface/50 border border-border p-4 rounded-lg text-center">
-                                <h3 className="text-primary font-bold text-3xl font-neue">15+</h3>
-                                <p className="text-muted text-xs uppercase tracking-wider mt-1">Tahun Pengalaman</p>
+                                <h3 className="text-primary font-bold text-3xl font-neue">100+</h3>
+                                <p className="text-muted text-xs uppercase tracking-wider mt-1">Contoh Statistik</p>
                             </div>
                             <div className="bg-surface/50 border border-border p-4 rounded-lg text-center">
-                                <h3 className="text-primary font-bold text-3xl font-neue">5000+</h3>
-                                <p className="text-muted text-xs uppercase tracking-wider mt-1">Mobil Terlayani</p>
+                                <h3 className="text-primary font-bold text-3xl font-neue">500+</h3>
+                                <p className="text-muted text-xs uppercase tracking-wider mt-1">Demo Item</p>
                             </div>
                         </div>
                     </motion.div>
@@ -356,8 +356,8 @@ export default function Home() {
                ========================================================= */}
             <section id="gallery" className="py-20 max-w-7xl mx-auto px-6 md:px-10">
                 <FadeInUp className="text-center mb-12">
-                    <h2 className="font-neue text-4xl font-bold tracking-wide text-primary">OUR GALLERY</h2>
-                    <p className="text-muted text-sm mt-2">Dokumentasi pengerjaan unit pelanggan kami</p>
+                    <h2 className="font-neue text-4xl font-bold tracking-wide text-primary">DEMO GALLERY</h2>
+                    <p className="text-muted text-sm mt-2">Area ini bisa dipakai untuk menampilkan contoh visual atau proyek Anda</p>
                 </FadeInUp>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -372,7 +372,7 @@ export default function Home() {
                         >
                             <div className="w-full h-full bg-linear-to-t from-dark to-transparent absolute inset-0 z-10 opacity-60"></div>
                             <img src={bengkelBg} alt={`Gallery ${num}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            <span className="absolute bottom-4 left-4 z-20 text-xs font-semibold bg-primary px-2 py-1 rounded">Unit #{num} Completed</span>
+                            <span className="absolute bottom-4 left-4 z-20 text-xs font-semibold bg-primary px-2 py-1 rounded">Demo Asset #{num}</span>
                         </motion.div>
                     ))}
                 </div>
@@ -384,8 +384,8 @@ export default function Home() {
             <section id="pricelist" className="py-20 bg-dark border-y border-border">
                 <div className="max-w-7xl mx-auto px-6 md:px-10">
                     <FadeInUp className="text-center mb-12">
-                        <h2 className="font-neue text-4xl font-bold tracking-wide text-primary">DAFTAR HARGA</h2>
-                        <p className="text-muted text-sm mt-2">Transparan, tanpa biaya tersembunyi</p>
+                        <h2 className="font-neue text-4xl font-bold tracking-wide text-primary">DEMO PRICELIST</h2>
+                        <p className="text-muted text-sm mt-2">Bagian ini bisa digunakan untuk menampilkan paket, harga, atau fitur utama</p>
                     </FadeInUp>
 
                     {isLayananLoading ? (
@@ -396,7 +396,7 @@ export default function Home() {
                         </div>
                     ) : layanan.length === 0 ? (
                         <FadeInUp className="text-center py-12 text-muted bg-surface/10 border border-dashed border-border rounded-xl">
-                            Belum ada layanan tersedia
+                            Belum ada data demo yang ditampilkan. Anda bisa mengisi data layanan sesuai kebutuhan.
                         </FadeInUp>
                     ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -432,8 +432,8 @@ export default function Home() {
             <section id="comments" className="py-20 max-w-7xl mx-auto px-6 md:px-10 border-t border-border/50">
                 <FadeInUp className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                     <div>
-                        <h2 className="font-neue text-4xl font-bold tracking-wide text-primary">CUSTOMER REVIEWS</h2>
-                        <p className="text-muted text-sm mt-2">Apa kata mereka yang sudah mempercayakan kendaraannya kepada kami</p>
+                        <h2 className="font-neue text-4xl font-bold tracking-wide text-primary">SAMPLE TESTIMONIALS</h2>
+                        <p className="text-muted text-sm mt-2">Contoh ulasan yang bisa Anda ganti dengan testimoni nyata atau mockup</p>
                     </div>
                     <div className="text-sm text-muted">
                         Total Ulasan: <span className="text-text font-semibold">{isCommentsLoading ? "..." : comments.length} Komentar</span>
@@ -447,7 +447,7 @@ export default function Home() {
                     </div>
                 ) : comments.length === 0 ? (
                     <FadeInUp className="text-center py-12 text-muted bg-surface/10 border border-dashed border-border rounded-xl">
-                        Belum ada ulasan dari pelanggan. Kirim saran Anda di bawah!
+                        Belum ada testimoni demo. Anda bisa menambahkan ulasan atau menghapus bagian ini sesuai kebutuhan.
                     </FadeInUp>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -490,8 +490,8 @@ export default function Home() {
             <section id="contact" className="py-20 bg-dark border-t border-border">
                 <div className="max-w-4xl mx-auto px-6 md:px-10">
                     <FadeInUp className="text-center mb-12">
-                        <h2 className="font-neue text-4xl font-bold tracking-wide text-primary">FEEDBACK & HUBUNGI KAMI</h2>
-                        <p className="text-muted text-sm mt-2">Kritik, saran, atau pertanyaan Anda sangat berharga bagi kami</p>
+                        <h2 className="font-neue text-4xl font-bold tracking-wide text-primary">FEEDBACK & CONTACT DEMO</h2>
+                        <p className="text-muted text-sm mt-2">Kolom ini bisa digunakan untuk formulir kontak, pertanyaan, atau feedback pengguna</p>
                     </FadeInUp>
 
                     <FadeInUp delay={0.2}>
@@ -504,7 +504,7 @@ export default function Home() {
                                     value={localForm.name}
                                     onChange={(e) => setLocalForm({ ...localForm, name: e.target.value })}
                                     className="w-full bg-background border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-text"
-                                    placeholder="Masukkan nama Anda..."
+                                    placeholder="Masukkan nama Anda untuk demo..."
                                     maxLength={50}
                                 />
                             </div>
@@ -530,7 +530,7 @@ export default function Home() {
                                     value={localForm.message}
                                     onChange={(e) => setLocalForm({ ...localForm, message: e.target.value })}
                                     className="w-full bg-background border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-text resize-none"
-                                    placeholder="Tulis kritik atau saran (minimal 15 karakter)..."
+                                    placeholder="Tulis pesan demo Anda (minimal 15 karakter)..."
                                     minLength={15}
                                     maxLength={500}
                                 ></textarea>
@@ -561,7 +561,7 @@ export default function Home() {
                                 disabled={commentLoading || cooldown > 0}
                                 className="w-full bg-primary hover:bg-primary-hover text-text font-bold text-sm py-3 rounded-md transition-colors duration-300 tracking-wider uppercase disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                {commentLoading ? 'MENGIRIM...' : cooldown > 0 ? `TUNGGU ${cooldown} DETIK` : 'KIRIM ULASAN'}
+                                {commentLoading ? 'MENGIRIM...' : cooldown > 0 ? `TUNGGU ${cooldown} DETIK` : 'KIRIM PESAN DEMO'}
                             </button>
                         </form>
                     </FadeInUp>

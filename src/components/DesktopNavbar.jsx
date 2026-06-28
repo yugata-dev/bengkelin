@@ -8,7 +8,7 @@ function DesktopNavbar() {
                 <Link to="/">
                     <h1 className="font-bold leading-tight">
                         <span className="text-text tracking-widest inline-block scale-y-180 font-neue text-base lg:text-lg">
-                            CAKARABANGKIT
+                            BEKGEL.IN
                         </span>
                         <br />
                         <span className="text-primary text-xs lg:text-sm tracking-[0.3em] font-neue">
