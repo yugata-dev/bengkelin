@@ -14,7 +14,7 @@ import { TrackProvider } from "./useTrack.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <TrackProvider>
-      <BrowserRouter basename="/bengkelin">
+      <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
