@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// 1. Ubah BrowserRouter menjadi HashRouter di baris import ini
+import { HashRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css"
 import History from "./pages/History.jsx";
@@ -14,18 +15,19 @@ import { TrackProvider } from "./useTrack.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <TrackProvider>
-      <BrowserRouter basename="/bengkelin">
+      {/* 2. Ganti BrowserRouter dengan HashRouter (tanpa perlu basename) */}
+      <HashRouter>
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
             <Route path="history" element={<History />} />
             <Route path="track" element={<Track />} />
-            <Route path="booking" element={<Booking />}></Route>
-            <Route path="admin" element={<Admin />}></Route>
-            <Route path="login" element={<Login />}></Route>
+            <Route path="booking" element={<Booking />} />
+            <Route path="admin" element={<Admin />} />
+            <Route path="login" element={<Login />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </TrackProvider>
   </React.StrictMode>
 );
