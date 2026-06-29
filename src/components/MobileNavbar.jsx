@@ -16,11 +16,11 @@ export default function MobileNavbar({ isOpen, toggleMenu, closeMenu }) {
                 <Link to="/" onClick={closeMenu}>
                     <h1 className="font-bold leading-tight">
                         <span className="text-text tracking-widest inline-block scale-y-180 font-neue text-base">
-                            BENGKEL.IN
+                            YUGATA
                         </span>
                         <br />
                         <span className="text-primary text-xs tracking-[0.3em] font-neue">
-                            CARSERVICE
+                            DEV
                         </span>
                     </h1>
                 </Link>

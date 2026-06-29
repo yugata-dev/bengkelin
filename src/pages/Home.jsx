@@ -249,7 +249,7 @@ export default function Home() {
                                 <span className={`w-2 h-2 rounded-full ${isMekanikLoading ? 'bg-gray-500' :
                                     mekanik?.status_bengkel === 'Buka' ? 'bg-green-500 animate-pulse' : 'bg-red-500'
                                     }`}></span>
-                                Status Demo Hari Ini
+                                Status Usaha Hari Ini
                             </h3>
 
                             {isMekanikLoading ? (
@@ -271,7 +271,7 @@ export default function Home() {
                                         <span className="text-text font-semibold">{antrianAktif.length} Mobil</span>
                                     </div>
                                     <div className="flex justify-between border-b border-border/50 pb-2">
-                                        <span className="text-muted">Mekanik Standby</span>
+                                        <span className="text-muted">Staff Standby</span>
                                         <span className="text-text font-semibold">
                                             {mekanik.mekanik_standby}
                                             <span className="text-muted">/{mekanik.total_mekanik}</span>

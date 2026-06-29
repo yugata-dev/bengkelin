@@ -53,10 +53,10 @@ function Antrian() {
         <div className="min-h-[calc(100vh-64px)] bg-background text-text font-poppins flex flex-col items-center p-4 py-12">
             <div className="w-full max-w-7xl">
                 <h2 className="font-neue text-3xl font-bold text-center text-primary mb-2 tracking-wide uppercase">
-                    ANTRIAN SERVIS
+                    ANTRIAN LAYANAN
                 </h2>
                 <p className="text-center text-muted text-xs uppercase tracking-wider mb-8">
-                    Live antrian bengkel hari ini • {antrianAktif.length} mobil
+                    Live antrian layanan hari ini • {antrianAktif.length} mobil
                 </p>
 
                 {/* Filter Status */}

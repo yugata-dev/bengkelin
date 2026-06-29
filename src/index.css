@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
+:root {
+    --color-primary: #E63946;
+    --color-primary-hover: #c5303c;
+}
+
 @theme {
     --font-poppins: "Poppins", sans-serif;
     --font-neue: "Bebas Neue", sans-serif;
 
-    --color-primary: #cc3333;
-    --color-primary-hover: #b82e2e;
+    --color-primary: var(--color-primary);
+    --color-primary-hover: var(--color-primary-hover);
     --color-dark: #0f1115;
     --color-background: #1a1c22;
     --color-surface: #23262d;

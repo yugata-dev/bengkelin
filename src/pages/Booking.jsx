@@ -8,7 +8,6 @@ function Booking() {
     const { state, dispatch } = useInputBooking()
     const [cooldown, setCooldown] = useState(0)
     const [phoneError, setPhoneError] = useState('')
-    const [platError, setPlatError] = useState('')
     const [layananList, setLayananList] = useState([])
 
     // Fetch layanan dari supabase
@@ -66,7 +65,6 @@ function Booking() {
         dispatch({ type: "NO", payload: value })
     }
 
-    // VALIDASI PLAT NOMOR
     const handlePlatChange = (e) => {
         let value = e.target.value.toUpperCase().replace(/[^A-Z0-9\s]/g, '')
         value = value.replace(/\s+/g, ' ').trimStart()
@@ -84,13 +82,6 @@ function Booking() {
 
         if (value.length <= 12) {
             dispatch({ type: "PLATNO", payload: value })
-
-            const platRegex = /^[A-Z]{1,2}\s\d{1,4}(\s[A-Z]{1,3})?$/
-            if (value && !platRegex.test(value)) {
-                setPlatError('Format: B 1234 ABC')
-            } else {
-                setPlatError('')
-            }
         }
     }
 
@@ -121,13 +112,7 @@ function Booking() {
             return
         }
 
-        // 4. VALIDASI PLAT NOMOR
-        if (state.inputPlatNo && platError) {
-            alert('Format plat nomor salah. Contoh: B 1234 ABC')
-            return
-        }
-
-        // 5. VALIDASI TANGGAL
+        // 4. VALIDASI TANGGAL
         const now = new Date()
         const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
         if (state.inputDate < today) {
@@ -164,7 +149,6 @@ function Booking() {
             setCooldown(30)
             dispatch({ type: "RESET" })
             setPhoneError('')
-            setPlatError('')
             setTrack([...track, data[0]])
             alert('Booking berhasil ditambah!')
         }
@@ -216,33 +200,28 @@ function Booking() {
 
                     {/* Input Mobil */}
                     <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-semibold uppercase tracking-wider text-muted">Jenis/Merk Mobil</label>
+                        <label className="text-xs font-semibold uppercase tracking-wider text-muted">Nama Produk / Kendaraan</label>
                         <input
                             type="text"
                             value={state.inputMobil}
                             onChange={(e) => dispatch({ type: "MOBIL", payload: e.target.value })}
-                            placeholder="Contoh: Avanza, Civic..."
+                            placeholder="Contoh: Motor, Mobil, Pakaian..."
                             className="w-full bg-background border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-text placeholder:text-muted/50"
                         />
                     </div>
 
                     {/* Input Plat No */}
                     <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-semibold uppercase tracking-wider text-muted">Plat Nomor</label>
+                        <label className="text-xs font-semibold uppercase tracking-wider text-muted">Nomor Identitas</label>
                         <input
                             type="text"
                             value={state.inputPlatNo}
                             onChange={handlePlatChange}
-                            placeholder="Contoh: B 1234 ABC"
-                            className={`w-full bg-background border rounded-md px-4 py-3 text-sm focus:outline-none transition-colors text-text placeholder:text-muted/50 ${platError ? 'border-red-500 focus:border-red-500' : 'border-border focus:border-primary'
-                                }`}
+                            placeholder="Contoh: B 1234 ABC, #ORDER-001"
+                            className="w-full bg-background border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-text placeholder:text-muted/50"
                             maxLength="12"
                         />
-                        {platError ? (
-                            <p className="text-red-500 text-xs">{platError}</p>
-                        ) : (
-                            <p className="text-xs text-muted">Format: B 1234 ABC atau BE 1234 DF</p>
-                        )}
+                        <p className="text-xs text-muted">Contoh: plat, nomor order, dll</p>
                     </div>
 
                     {/* SELECT LAYANAN - GANTI DARI INPUT */}

@@ -210,9 +210,9 @@ function Admin() {
 
     const sendWhatsApp = (booking, newStatus) => {
         const messages = {
-            'Proses': `Halo ${booking.nama}! 🔧 Mobil Anda (${booking.platno}) sedang dalam proses pengerjaan di Cakarabangkit Car Service. Estimasi selesai: ${hitungJamSelesai(booking.jam_mulai || booking.jam, booking.estimasi)}. Terima kasih telah menunggu!`,
+            'Proses': `Halo ${booking.nama}! 🔧 Mobil Anda (${booking.platno}) sedang dalam proses pengerjaan di Yugata Dev. Estimasi selesai: ${hitungJamSelesai(booking.jam_mulai || booking.jam, booking.estimasi)}. Terima kasih telah menunggu!`,
             'Quality Check': `Halo ${booking.nama}! 🔍 Mobil Anda (${booking.platno}) sedang dalam tahap Quality Check. Sebentar lagi selesai!`,
-            'Selesai': `Halo ${booking.nama}! ✅ Mobil Anda (${booking.platno}) sudah selesai diservis di Cakarabangkit Car Service. Silakan diambil. Terima kasih!`,
+            'Selesai': `Halo ${booking.nama}! ✅ Mobil Anda (${booking.platno}) sudah selesai diservis di Yugata Dev. Silakan diambil. Terima kasih!`,
             'Menunggu Part': `Halo ${booking.nama}! 📦 Mobil Anda (${booking.platno}) sedang menunggu spare part. Kami akan segera menghubungi Anda kembali.`,
             'Batal': `Halo ${booking.nama}! ❌ Mohon maaf, booking Anda (${booking.platno}) dibatalkan. Silakan hubungi kami untuk info lebih lanjut.`
         }
@@ -368,11 +368,11 @@ function Admin() {
                 {/* ATUR MEKANIK */}
                 <div className="bg-surface/40 backdrop-blur-md border border-border rounded-xl p-6 mb-8">
                     <h3 className="text-xl font-bold text-text mb-4 flex items-center gap-2">
-                        🔧 Atur Status Mekanik & Bengkel
+                        🔧 Atur Status Tim & Usaha
                     </h3>
                     <form onSubmit={handleUpdateMekanik} className="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <div>
-                            <label className="text-xs text-muted">Total Mekanik</label>
+                            <label className="text-xs text-muted">Total Staff</label>
                             <input
                                 type="number"
                                 value={mekanikForm.total_mekanik}
@@ -382,7 +382,7 @@ function Admin() {
                             />
                         </div>
                         <div>
-                            <label className="text-xs text-muted">Mekanik Standby</label>
+                            <label className="text-xs text-muted">Staff Standby</label>
                             <input
                                 type="number"
                                 value={mekanikForm.mekanik_standby}
@@ -392,11 +392,11 @@ function Admin() {
                                 max={mekanikForm.total_mekanik}
                             />
                             <p className="text-xs text-muted mt-1">
-                                Yang nganggur: {mekanikForm.total_mekanik - mekanikForm.mekanik_standby}
+                                Yang tersedia: {mekanikForm.total_mekanik - mekanikForm.mekanik_standby}
                             </p>
                         </div>
                         <div>
-                            <label className="text-xs text-muted">Status Bengkel</label>
+                            <label className="text-xs text-muted">Status Usaha</label>
                             <select
                                 value={mekanikForm.status_bengkel}
                                 onChange={(e) => setMekanikForm({ ...mekanikForm, status_bengkel: e.target.value })}
