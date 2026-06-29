@@ -1,6 +1,6 @@
 # 🔧 Bengkelin — Sistem Manajemen Bengkel Digital
 
-> Platform booking & tracking servis kendaraan berbasis web untuk **Cakarabangkit Car Service, Malang.**
+> Platform booking & tracking servis kendaraan berbasis web untuk **Bisnis**
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat&logo=vite)
