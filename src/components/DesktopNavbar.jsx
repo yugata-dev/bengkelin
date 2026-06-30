@@ -8,11 +8,11 @@ function DesktopNavbar() {
                 <Link to="/">
                     <h1 className="font-bold leading-tight">
                         <span className="text-text tracking-widest inline-block scale-y-180 font-neue text-base lg:text-lg">
-                            YUGATA
+                            BENGKELIN
                         </span>
                         <br />
                         <span className="text-primary text-xs lg:text-sm tracking-[0.3em] font-neue">
-                            DEV
+                            MANAJEMEN BENGKEL
                         </span>
                     </h1>
                 </Link>

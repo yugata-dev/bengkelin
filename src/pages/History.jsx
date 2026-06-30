@@ -56,7 +56,7 @@ function Antrian() {
                     ANTRIAN LAYANAN
                 </h2>
                 <p className="text-center text-muted text-xs uppercase tracking-wider mb-8">
-                    Live antrian layanan hari ini • {antrianAktif.length} mobil
+                    Live antrian layanan hari ini • {antrianAktif.length} antrean aktif
                 </p>
 
                 {/* Filter Status */}

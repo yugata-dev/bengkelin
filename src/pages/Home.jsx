@@ -193,7 +193,7 @@ export default function Home() {
                         >
                             <span className="w-8 h-0.5 bg-primary"></span>
                             <p className="text-primary font-bold text-xs tracking-[0.3em] uppercase">
-                                TEMPLATE LANDING PAGE DEMO
+                                SISTEM MANAJEMEN BENGKEL DIGITAL
                             </p>
                         </motion.div>
 

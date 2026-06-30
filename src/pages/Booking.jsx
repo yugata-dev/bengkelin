@@ -165,7 +165,7 @@ function Booking() {
                     BOOKING SERVICES
                 </h2>
                 <p className="text-center text-muted text-xs uppercase tracking-wider mb-8">
-                    Daftarkan kendaraan Anda untuk antrean servis berkala
+                    Daftarkan kendaraan atau produk Anda untuk antrean layanan
                 </p>
 
                 <form onSubmit={addList} className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -200,12 +200,12 @@ function Booking() {
 
                     {/* Input Mobil */}
                     <div className="flex flex-col gap-1.5">
-                        <label className="text-xs font-semibold uppercase tracking-wider text-muted">Nama Produk / Kendaraan</label>
+                        <label className="text-xs font-semibold uppercase tracking-wider text-muted">Kendaraan</label>
                         <input
                             type="text"
                             value={state.inputMobil}
                             onChange={(e) => dispatch({ type: "MOBIL", payload: e.target.value })}
-                            placeholder="Contoh: Motor, Mobil, Pakaian..."
+                            placeholder="Contoh: Brio, Avanza, Vios, dll"
                             className="w-full bg-background border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-text placeholder:text-muted/50"
                         />
                     </div>
@@ -217,11 +217,11 @@ function Booking() {
                             type="text"
                             value={state.inputPlatNo}
                             onChange={handlePlatChange}
-                            placeholder="Contoh: B 1234 ABC, #ORDER-001"
+                            placeholder="Contoh: B 1234 ABC"
                             className="w-full bg-background border border-border rounded-md px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-text placeholder:text-muted/50"
                             maxLength="12"
                         />
-                        <p className="text-xs text-muted">Contoh: plat, nomor order, dll</p>
+                        <p className="text-xs text-muted">Contoh: B 1234 ABC</p>
                     </div>
 
                     {/* SELECT LAYANAN - GANTI DARI INPUT */}

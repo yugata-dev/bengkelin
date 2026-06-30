@@ -13,9 +13,9 @@ export default function Footer() {
         <footer className="bg-background border-t border-border py-12 text-sm text-muted">
             <div className="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <span className="font-neue text-2xl font-bold text-text tracking-wider">YUGATA</span>
-                    <span className="text-primary block text-xs font-bold tracking-[0.2em] -mt-1 mb-3">DEV</span>
-                    <p className="text-xs leading-relaxed">Bengkel terpercaya di Malang sejak 2018.</p>
+                    <span className="font-neue text-2xl font-bold text-text tracking-wider">BENGKELIN</span>
+                    <span className="text-primary block text-xs font-bold tracking-[0.2em] -mt-1 mb-3">MANAJEMEN BENGKEL</span>
+                    <p className="text-xs leading-relaxed">Platform digital untuk mengelola operasional bengkel secara modern dan efisien.</p>
                 </div>
 
                 <div>
@@ -32,8 +32,8 @@ export default function Footer() {
                 <div>
                     <h4 className="text-text font-bold text-xs uppercase tracking-wider mb-4">Kontak</h4>
                     <div className="space-y-2 text-xs">
-                        <p>✉ yugata.dv@gmail.com</p>
-                        <p>📍 Malang, Jawa Timur</p>
+                        <p>✉ info@bengkelanda.com</p>
+                        <p>📍 Kota Anda</p>
                         <p>📱 +62 812-3456-7890</p>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ export default function Footer() {
             </div>
 
             <div className="max-w-7xl mx-auto px-6 md:px-10 border-t border-border/50 pt-6 text-center text-xs">
-                <p>© {new Date().getFullYear()} Yugata Dev. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} Bengkelin. All rights reserved.</p>
             </div>
         </footer>
     )
